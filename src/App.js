@@ -1,12 +1,17 @@
 import './App.css';
+import Grid from '@mui/material/Unstable_Grid2';
+import { LandingView } from './components/LandingView/LandingView';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          <img className="App-logo" src="https://firebasestorage.googleapis.com/v0/b/philip-timothe.appspot.com/o/Philip%2FPhilip%20Timothe%20Signature.png?alt=media&token=3e1b92d0-e933-4177-877d-5dc155c2323d" alt="" />
-        
-      </header>
+      <Grid container spacing={2}>
+        {/* <header className="App-header">
+        </header> */}
+        <Grid xs={12}>
+          <LandingView></LandingView>
+        </Grid>
+      </Grid>    
     </div>
   );
 }

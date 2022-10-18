@@ -1,0 +1,47 @@
+.signature {
+  height: 25vmin;
+  animation: signature 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes signature {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.title {
+  animation: title 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 2s;
+}
+
+@keyframes title {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.workTitle {
+  animation: workTitle 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 3s;
+}
+
+@keyframes workTitle {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -8,4 +8,16 @@ describe("landingView", () => {
     const signatureLogo = screen.getByAltText("Philip Timothe Logo Signature");
     expect(signatureLogo).toBeInTheDocument();
   });
+
+  it("should render name title", () => {
+    render(<LandingView />);
+    const title = screen.getByText("PHILIP TIMOTHE");
+    expect(title).toBeInTheDocument();
+  });
+
+  it("should render work title", () => {
+    render(<LandingView />);
+    const title = screen.getByText("Software Engineer");
+    expect(title).toBeInTheDocument();
+  });
 });

@@ -41,7 +41,7 @@ export const LandingView = () => {
           <img
             className="signature"
             src="https://firebasestorage.googleapis.com/v0/b/philip-timothe.appspot.com/o/Philip%2FPhilip%20Timothe%20Signature.png?alt=media&token=4bb57e91-80ac-4dc0-9928-b6a5d432bb4b"
-            alt=""
+            alt="Philip Timothe Logo Signature"
           />
         </Grid>
         <Grid xs={12}>

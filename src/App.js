@@ -1,6 +1,6 @@
-import './App.css';
-import Grid from '@mui/material/Unstable_Grid2';
-import { LandingView } from './components/LandingView/LandingView';
+import "./App.css";
+import Grid from "@mui/material/Unstable_Grid2";
+import LandingView from "./components/LandingView";
 
 function App() {
   return (
@@ -9,9 +9,9 @@ function App() {
         {/* <header className="App-header">
         </header> */}
         <Grid xs={12}>
-          <LandingView></LandingView>
+          <LandingView />
         </Grid>
-      </Grid>    
+      </Grid>
     </div>
   );
 }

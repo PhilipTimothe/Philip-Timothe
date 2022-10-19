@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { SkillsCard } from "./SkillsCard";
 
 const Container = styled.div`
   background-color: white;
@@ -32,6 +33,16 @@ export const SkillsView = () => {
               MY TECHNICAL PROFICIENCIES
             </Typography>
           </ThemeProvider>
+        </Grid>
+        <Grid
+          item
+          container
+          direction="column"
+          alignItems="center"
+          justify="center"
+          xs={12}
+        >
+          <SkillsCard />
         </Grid>
       </Grid>
     </Container>

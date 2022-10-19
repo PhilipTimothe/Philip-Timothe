@@ -19,6 +19,7 @@ const nameTitle = createTheme({
     h2: {
       fontSize: 45,
       letterSpacing: 20,
+      color: "#4F81BD",
     },
   },
 });
@@ -52,7 +53,7 @@ export const LandingView = () => {
           </ThemeProvider>
           <ThemeProvider theme={workTitle}>
             <Typography className="workTitle" variant="h5" gutterBottom>
-              Software Engineer
+              SOFTWARE ENGINEER | FRONTEND DEVELOPER
             </Typography>
           </ThemeProvider>
         </Grid>

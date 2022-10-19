@@ -19,6 +19,7 @@ const SkillSectionTitle = createTheme({
       fontWeight: 300,
       fontSize: 30,
       letterSpacing: 5,
+      color: "#4F81BD",
     },
   },
 });

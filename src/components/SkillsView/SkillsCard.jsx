@@ -203,14 +203,27 @@ export function SkillsCard() {
       </Grid>
 
       <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          xs={12}
         >
-          <ExpandMoreIcon />
-        </ExpandMore>
+          <Grid item xs={11}>
+            <Typography variant="body2">{`<body><p> Learn more about my proficiencies.  Click the expand button to the right! </p></body>`}</Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </ExpandMore>
+          </Grid>
+        </Grid>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

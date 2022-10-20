@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import "./App.css";
 import Grid from "@mui/material/Unstable_Grid2";
 import LandingView from "./components/LandingView";

@@ -1,6 +1,6 @@
 .signature {
   height: 25vmin;
-  animation: signature 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: signature 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 @keyframes signature {
@@ -15,8 +15,8 @@
 }
 
 .title {
-  animation: title 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: 2s;
+  animation: title 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 0.5s;
 }
 
 @keyframes title {
@@ -31,8 +31,8 @@
 }
 
 .workTitle {
-  animation: workTitle 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation-delay: 3s;
+  animation: workTitle 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 1s;
 }
 
 @keyframes workTitle {

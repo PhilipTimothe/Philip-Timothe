@@ -17,7 +17,7 @@ describe("landingView", () => {
 
   it("should render work title", () => {
     render(<LandingView />);
-    const title = screen.getByText("Software Engineer");
+    const title = screen.getByText("SOFTWARE ENGINEER | FRONTEND DEVELOPER");
     expect(title).toBeInTheDocument();
   });
 });

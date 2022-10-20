@@ -1,8 +1,12 @@
 .skillsTitle {
-  animation: skillsTitle 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  opacity: 0;
 }
 
-@keyframes skillsTitle {
+.skillsTitle.appear {
+  animation: skillsTitleAppear 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes skillsTitleAppear {
   0% {
     letter-spacing: 1em;
     opacity: 0;
@@ -11,11 +15,29 @@
     opacity: 0.6;
   }
   100% {
-    letter-spacing: normal;
     opacity: 1;
   }
 }
 
 .skillImages {
   height: 5vmin;
+}
+
+.skillsCard {
+  opacity: 0;
+}
+
+.skillsCard.appear {
+  animation: skillsCardAppear 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes skillsCardAppear {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
 }

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SkillsView.css";
 import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SkillsCard } from "./SkillsCard";
-import Reveal from "react-reveal/Reveal";
+import VisibilitySensor from "react-visibility-sensor";
 
 const Container = styled.div`
   background-color: white;
@@ -27,17 +27,29 @@ const SkillSectionTitle = createTheme({
 });
 
 export const SkillsView = () => {
+  const [active, setActive] = useState(true);
+
+  const handleVisibility = (isVisible) => {
+    if (isVisible) setActive(false);
+  };
+
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <Reveal effect="fadeInRight" duration={2000}>
-            <ThemeProvider theme={SkillSectionTitle}>
-              <Typography className="" variant="h5" gutterBottom>
-                MY TECHNICAL PROFICIENCIES
-              </Typography>
-            </ThemeProvider>
-          </Reveal>
+          <VisibilitySensor active={active} onChange={handleVisibility}>
+            {({ isVisible }) => (
+              <ThemeProvider theme={SkillSectionTitle}>
+                <Typography
+                  className={isVisible ? "skillsTitle appear" : "skillsTitle"}
+                  variant="h5"
+                  gutterBottom
+                >
+                  MY TECHNICAL PROFICIENCIES
+                </Typography>
+              </ThemeProvider>
+            )}
+          </VisibilitySensor>
         </Grid>
         <Grid
           item
@@ -47,9 +59,7 @@ export const SkillsView = () => {
           justify="center"
           xs={12}
         >
-          <Reveal effect="fadeIn" duration={4000}>
-            <SkillsCard />
-          </Reveal>
+          <SkillsCard />
         </Grid>
       </Grid>
     </Container>

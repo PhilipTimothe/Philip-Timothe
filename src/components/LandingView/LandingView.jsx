@@ -3,7 +3,11 @@ import "./LandingView.css";
 import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
 
 const Container = styled.div`
   background-color: white;
@@ -14,7 +18,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const nameTitle = createTheme({
+let nameTitle = createTheme({
   typography: {
     h2: {
       fontSize: 45,
@@ -23,8 +27,9 @@ const nameTitle = createTheme({
     },
   },
 });
+nameTitle = responsiveFontSizes(nameTitle);
 
-const workTitle = createTheme({
+let workTitle = createTheme({
   typography: {
     h5: {
       fontWeight: 300,
@@ -33,6 +38,7 @@ const workTitle = createTheme({
     },
   },
 });
+workTitle = responsiveFontSizes(workTitle);
 
 export const LandingView = () => {
   return (

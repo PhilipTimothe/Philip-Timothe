@@ -3,7 +3,11 @@ import "./SkillsView.css";
 import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
 import { SkillsCard } from "./SkillsCard";
 import VisibilitySensor from "react-visibility-sensor";
 
@@ -15,7 +19,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const SkillSectionTitle = createTheme({
+let SkillSectionTitle = createTheme({
   typography: {
     h5: {
       fontWeight: 300,
@@ -25,6 +29,7 @@ const SkillSectionTitle = createTheme({
     },
   },
 });
+SkillSectionTitle = responsiveFontSizes(SkillSectionTitle);
 
 export const SkillsView = () => {
   const [active, setActive] = useState(true);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./SkillsView.css";
+import "./ProjectsView.css";
 import styled from "styled-components";
+import { ProjectCards } from "./ProjectCards";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Typography, Divider } from "@mui/material";
 import {
@@ -8,7 +9,6 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
-import { SkillsCard } from "./SkillsCard";
 import VisibilitySensor from "react-visibility-sensor";
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-let SkillSectionTitle = createTheme({
+let ProjectSectionTitle = createTheme({
   typography: {
     h5: {
       fontWeight: 300,
@@ -29,9 +29,9 @@ let SkillSectionTitle = createTheme({
     },
   },
 });
-SkillSectionTitle = responsiveFontSizes(SkillSectionTitle);
+ProjectSectionTitle = responsiveFontSizes(ProjectSectionTitle);
 
-export const SkillsView = () => {
+export const ProjectsView = () => {
   const [active, setActive] = useState(true);
 
   const handleVisibility = (isVisible) => {
@@ -44,13 +44,15 @@ export const SkillsView = () => {
         <Grid xs={12}>
           <VisibilitySensor active={active} onChange={handleVisibility}>
             {({ isVisible }) => (
-              <ThemeProvider theme={SkillSectionTitle}>
+              <ThemeProvider theme={ProjectSectionTitle}>
                 <Typography
-                  className={isVisible ? "skillsTitle appear" : "skillsTitle"}
+                  className={
+                    isVisible ? "projectsTitle appear" : "projectsTitle"
+                  }
                   variant="h5"
                   gutterBottom
                 >
-                  MY TECHNICAL PROFICIENCIES
+                  MY PROJECTS
                 </Typography>
               </ThemeProvider>
             )}
@@ -64,7 +66,7 @@ export const SkillsView = () => {
           justify="center"
           xs={12}
         >
-          <SkillsCard />
+          <ProjectCards />
         </Grid>
       </Grid>
     </Container>

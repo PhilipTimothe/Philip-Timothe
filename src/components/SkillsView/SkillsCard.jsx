@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "./SkillsView.css";
-import { styled } from "@mui/material/styles";
-import { Card, CardActions, Box, Divider, Typography } from "@mui/material";
+import { Card, CardActions, Box, Typography } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,
@@ -88,7 +86,7 @@ export function SkillsCard() {
                 </Grid>
               </Grid>
 
-              <Divider orientation="vertical" variant="middle" flexItem />
+              {/* Section 1 .............................  */}
 
               <Grid item style={{ maxWidth: 200 }} xs={4}>
                 <Box
@@ -134,7 +132,7 @@ export function SkillsCard() {
                 </Grid>
               </Grid>
 
-              <Divider orientation="vertical" variant="middle" flexItem />
+              {/* Section 2 .............................  */}
 
               <Grid item style={{ maxWidth: 200 }} xs={4}>
                 <Box

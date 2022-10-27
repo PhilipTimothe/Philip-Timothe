@@ -3,11 +3,13 @@ import "./App.css";
 import Grid from "@mui/material/Unstable_Grid2";
 import LandingView from "./components/LandingView";
 import SkillsView from "./components/SkillsView";
+import ProjectsView from "./components/ProjectsView";
+import { Divider } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {/* <header className="App-header">
         </header> */}
         <Grid xs={12}>
@@ -15,6 +17,9 @@ function App() {
         </Grid>
         <Grid xs={12}>
           <SkillsView />
+        </Grid>
+        <Grid xs={12}>
+          <ProjectsView />
         </Grid>
       </Grid>
     </div>

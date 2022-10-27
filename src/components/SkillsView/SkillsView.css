@@ -1,3 +1,4 @@
+/* Skills title animation */
 .skillsTitle {
   opacity: 0;
 }
@@ -20,7 +21,8 @@
 }
 
 .skillImages {
-  height: 5vmin;
+  max-height: 5vh;
+  max-width: 100%;
 }
 
 .skillsCard {
@@ -39,6 +41,19 @@
   100% {
     filter: blur(0px);
     opacity: 1;
+  }
+}
+
+/* When screen is 400px shorten width to 35vh */
+@media only screen and (max-width: 500px) {
+  .skillsCard.appear {
+    width: 35vh;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .skillsCard.appear {
+    width: 70vh;
   }
 }
 

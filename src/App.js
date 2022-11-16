@@ -17,9 +17,6 @@ function App() {
         <Grid xs={12}>
           <SkillsView />
         </Grid>
-        <Grid xs={12}>
-          <WorkExperienceView />
-        </Grid>
       </Grid>
     </div>
   );

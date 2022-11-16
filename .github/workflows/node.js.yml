@@ -42,7 +42,8 @@ jobs:
           # Specifies the path of the static assets after building
           path: # optional, default is dist
           # Specifies the command to run after npm ci for the build
-          build_command:# optional, default is npm run build
+          build_command:
+          # optional, default is npm run build
       # - name: Checkout repository
       #   uses: actions/checkout@v3
 

@@ -32,6 +32,21 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v2
+
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Deploy React to GitHub Pages
         # You may pin to the exact commit or the version.
         # uses: bitovi/github-actions-react-to-ghp@1782b3410beca05fb72bd089e5620790c0c4d883
@@ -44,20 +59,6 @@ jobs:
           # Specifies the command to run after npm ci for the build
           build_command:
           # optional, default is npm run build
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
-
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v2
-
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     cache: "npm"
-
-      # - name: Install dependencies
-      #   run: npm install
 
       # - name: Run tests
       #   run: npm test

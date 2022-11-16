@@ -3,6 +3,7 @@ import "./App.css";
 import Grid from "@mui/material/Unstable_Grid2";
 import LandingView from "./components/LandingView";
 import SkillsView from "./components/SkillsView";
+import WorkExperienceView from "./components/WorkExperienceView";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Grid>
         <Grid xs={12}>
           <SkillsView />
+        </Grid>
+        <Grid xs={12}>
+          <WorkExperienceView />
         </Grid>
       </Grid>
     </div>

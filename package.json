@@ -1,6 +1,7 @@
 {
   "name": "philip-portfolio",
   "version": "0.1.0",
+  "homepage": "https://philiptimothe.github.io/Philip-Timothe/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -21,6 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +49,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
+    "gh-pages": "^4.0.0",
     "jest": "^27.5.1"
   }
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SkillsView.css";
 import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Typography, Divider } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,

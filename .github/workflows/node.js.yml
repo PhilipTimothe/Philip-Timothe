@@ -70,10 +70,14 @@ jobs:
 
       - name: Prepare pages artifact
         run: |
-          tar \
+          for f in $(chmod -v -R +r .)
+          do
+            echo "::warning::Added read permission to $f"
+          done
+          gtar \
             --dereference --hard-dereference \
-            --directory docs/_build/html \
-            -cvf docs/_build/html.tar \
+            --directory _site/ \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
             .

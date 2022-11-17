@@ -4,103 +4,93 @@
 name: Node.js CI
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v2
+      - name: Deploy react app to github pages
+        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+# on:
+#   # Runs on pushes targeting the default branch
+#   push:
+#     branches: ["main"]
 
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     cache: "npm"
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
 
-      - name: Install dependencies
-        run: npm install
+# # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
-      - name: Deploy
-        run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          git remote set-url origin https://${github_token}@github.com/${repository}
+# # Allow one concurrent deployment
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: true
 
-        env:
-          user_name: "philiptimothe"
-          user_email: "philiptimothe@noreply.github.com"
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-      - name: Deploy React to GitHub Pages
-        # You may pin to the exact commit or the version.
-        # uses: bitovi/github-actions-react-to-ghp@1782b3410beca05fb72bd089e5620790c0c4d883
-        uses: bitovi/github-actions-react-to-ghp@v1.2.0
-        with:
-          # Specifies if this action should checkout the code
-          checkout: # optional, default is true
-          # Specifies the path of the static assets after building
-          path: # optional, default is dist
-          # Specifies the command to run after npm ci for the build
-          build_command:
-          # optional, default is npm run build
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
+#         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      # - name: Run tests
-      #   run: npm test
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      # - name: Build
-      #   run: npm run build --if-present
+#       - name: Setup Pages
+#         uses: actions/configure-pages@v2
 
-      # - name: Deploy
-      #   run: |
-      #     git config --global user.name $user_name
-      #     git config --global user.email $user_email
-      #     git remote set-url origin https://${github_token}@github.com/${repository}
-      #     npm run deploy
-      #   env:
-      #     user_name: "philiptimothe"
-      #     user_email: "philiptimothe@noreply.github.com"
-      #     github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-      #     repository: ${{ github.repository }}
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: "npm"
 
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v1
+#       - name: Install dependencies
+#         run: npm install
 
-  # # Deployment job
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
+#       - name: Run tests
+#         run: npm test
+
+#       - name: Build
+#         run: npm run build --if-present
+
+#       - name: Deploy
+#         run: |
+#           git config --global user.name $user_name
+#           git config --global user.email $user_email
+#           git remote set-url origin https://${github_token}@github.com/${repository}
+#           npm run deploy
+#         env:
+#           user_name: "philiptimothe"
+#           user_email: "philiptimothe@noreply.github.com"
+#           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+#           repository: ${{ github.repository }}
+
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v1
+
+#   # Deployment job
+#   deploy:
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     runs-on: ubuntu-latest
+#     needs: build
+#     steps:
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v1

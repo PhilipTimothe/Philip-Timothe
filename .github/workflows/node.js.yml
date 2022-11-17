@@ -77,7 +77,7 @@ jobs:
           gtar \
             --dereference --hard-dereference \
             --directory _site/ \
-            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -cvf docs/_build/html.tar \
             --exclude=.git \
             --exclude=.github \
             .
@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: github-pages
-          path: ${{ runner.temp }}/artifact.tar
+          path: docs/_build/html.tar
           retention-days: 1
 
   # Deployment job

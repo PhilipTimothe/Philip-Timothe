@@ -47,6 +47,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run Clean Install
+        run: npm ci
+
       - name: Run tests
         run: npm test
 
@@ -58,18 +61,6 @@ jobs:
           name: page
           path: build
           if-no-files-found: error
-
-      # - name: Deploy
-      #   run: |
-      #     git config --global user.name $user_name
-      #     git config --global user.email $user_email
-      #     git remote set-url origin https://${github_token}@github.com/${repository}
-
-      #   env:
-      #     user_name: "philiptimothe"
-      #     user_email: "philiptimothe@noreply.github.com"
-      #     github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-      #     repository: ${{ github.repository }}
 
   # Deployment job
   deploy:

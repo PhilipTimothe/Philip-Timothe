@@ -34,8 +34,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Deploy react app to github pages
-        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+      - run: npm i
+        shell: bash
+      - run: npm ci
+        shell: bash
+      - run: npm run build
+        shell: bash
+      - run: git config user.name github-actions
+        shell: bash
+      - run: git config user.email github-actions@github.com
+        shell: bash
+      - run: git config user.email github-actions
+      - name: github token
+        run: git remote set-url origin https://${github_token}@github.com/${repository}
+        env:
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
+      - run: git --work-tree build add --all
+        shell: bash
+      - run: git commit -m "Automatic Deploy action run by github-actions"
+        shell: bash
+      - run: git push origin HEAD:gh-pages --force
+        shell: bash
 
   #     - name: Checkout repository
   #       uses: actions/checkout@v3
@@ -58,17 +78,17 @@ jobs:
   #     - name: Build
   #       run: npm run build --if-present
 
-  #     - name: Deploy
-  #       run: |
-  #         git config --global user.name $user_name
-  #         git config --global user.email $user_email
-  #         git remote set-url origin https://${github_token}@github.com/${repository}
-  #         npm run deploy
-  #       env:
-  #         user_name: "philiptimothe"
-  #         user_email: "philiptimothe@noreply.github.com"
-  #         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-  #         repository: ${{ github.repository }}
+  # - name: Deploy
+  #   run: |
+  #     git config --global user.name $user_name
+  #     git config --global user.email $user_email
+  #     git remote set-url origin https://${github_token}@github.com/${repository}
+  #     npm run deploy
+  #   env:
+  #     user_name: "philiptimothe"
+  #     user_email: "philiptimothe@noreply.github.com"
+  #     github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+  #     repository: ${{ github.repository }}
 
   #     - name: Upload artifact
   #       uses: actions/upload-pages-artifact@v1

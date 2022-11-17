@@ -81,10 +81,11 @@ jobs:
             --exclude=.git \
             --exclude=.github \
             .
-      - uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@main
         with:
           name: github-pages
-          path: docs/_build/html.tar
+          path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
 
   # Deployment job

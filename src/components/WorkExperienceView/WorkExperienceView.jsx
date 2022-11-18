@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllJobs } from "../../firestore";
 import styled from "styled-components";
 import Grid from "@mui/material/Unstable_Grid2";
-import Typography from "@mui/material/Typography";
+import { Container, Typography } from "@mui/material";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -23,40 +23,60 @@ export const WorkExperienceView = () => {
       temp.push(doc.data());
     });
 
+    temp = await temp.sort((a, b) => b.start - a.start);
     await setJobs(temp);
+    console.log(jobs[0]);
   };
 
   useEffect(() => {
     loadData();
   }, []);
 
+  let fullDate = (startDate, endDate) => {
+    let startMonth = startDate
+      .toDate()
+      .toLocaleDateString(undefined, { month: "long" });
+    let startYear = startDate.toDate().getFullYear();
+    let endMonth = endDate
+      .toDate()
+      .toLocaleDateString(undefined, { month: "long" });
+    let endYear = endDate.toDate().getFullYear();
+    return startMonth + " " + startYear + " - " + endMonth + " " + endYear;
+  };
+
   return (
     <>
-      <Timeline position="alternate">
-        <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: "auto 0" }}
-            align="right"
-            variant="body2"
-            color="text.secondary"
-          >
-            9:30 am
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector />
-            <TimelineDot>
-              <FastfoodIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Eat
-            </Typography>
-            <Typography>Because you need strength</Typography>
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline>
+      <Container maxWidth="false">
+        {Array.isArray(jobs) && jobs.length > 0 ? (
+          <Timeline position="alternate">
+            <TimelineItem>
+              <TimelineOppositeContent
+                sx={{ m: "auto 0" }}
+                align="right"
+                variant="body2"
+                color="text.secondary"
+              >
+                {fullDate(jobs[0]["start"], jobs[0]["end"])}
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <TimelineDot>
+                  <FastfoodIcon />
+                </TimelineDot>
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent sx={{ py: "12px", px: 2 }}>
+                <Typography variant="h6" component="span">
+                  {jobs[0]["title"]}
+                </Typography>
+                <Typography>{jobs[0]["employer"]}</Typography>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+        ) : (
+          ""
+        )}
+      </Container>
     </>
   );
 };

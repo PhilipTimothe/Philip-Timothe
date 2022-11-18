@@ -25,13 +25,14 @@ export const WorkExperienceView = () => {
 
     temp = await temp.sort((a, b) => b.start - a.start);
     await setJobs(temp);
-    console.log(jobs[0]);
+    console.log(jobs[0]["details"].map((detail) => detail));
   };
 
   useEffect(() => {
     loadData();
   }, []);
 
+  // Function that parses date to styled standards
   let fullDate = (startDate, endDate) => {
     let startMonth = startDate
       .toDate()
@@ -49,29 +50,36 @@ export const WorkExperienceView = () => {
       <Container maxWidth="false">
         {Array.isArray(jobs) && jobs.length > 0 ? (
           <Timeline position="alternate">
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              >
-                {fullDate(jobs[0]["start"], jobs[0]["end"])}
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot>
-                  <FastfoodIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  {jobs[0]["title"]}
-                </Typography>
-                <Typography>{jobs[0]["employer"]}</Typography>
-              </TimelineContent>
-            </TimelineItem>
+            {jobs.map((job) => (
+              <TimelineItem>
+                <TimelineOppositeContent
+                  sx={{ m: "auto 0" }}
+                  align="right"
+                  variant="body2"
+                  color="text.secondary"
+                >
+                  {fullDate(job["start"], job["end"])}
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineConnector />
+                  <TimelineDot>
+                    <FastfoodIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent sx={{ py: "12px", px: 2 }}>
+                  <Typography variant="h6" component="span">
+                    {job["title"]}
+                  </Typography>
+                  <Typography>{job["employer"]}</Typography>
+                  {job["details"].map((detail) => (
+                    <Typography variant="body2" color="text.secondary">
+                      - {detail}
+                    </Typography>
+                  ))}
+                </TimelineContent>
+              </TimelineItem>
+            ))}
           </Timeline>
         ) : (
           ""

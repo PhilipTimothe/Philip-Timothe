@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDocs, getFirestore, collection } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,4 +26,22 @@ const db = getFirestore(app);
 export const getAllJobs = async (path) => {
   const querySnapshot = await getDocs(collection(db, path));
   return querySnapshot;
+};
+
+const storage = getStorage();
+
+export const getImage = async (path) => {
+  getDownloadURL(ref(storage, path))
+    .then((url) => {
+      // `url` is the download URL for 'images/stars.jpg'
+
+      // Or inserted into an <img> element
+      // const img = document.getElementById("myimg");
+      // img.setAttribute("src", url);
+      // console.log(url);
+      return url.toString();
+    })
+    .catch((error) => {
+      // Handle any errors
+    });
 };

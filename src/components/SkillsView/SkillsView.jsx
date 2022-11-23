@@ -13,7 +13,7 @@ import VisibilitySensor from "react-visibility-sensor";
 
 const Container = styled.div`
   background-color: white;
-  min-height: 80vh;
+  min-height: 60vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;

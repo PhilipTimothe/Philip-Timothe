@@ -32,7 +32,7 @@ export function SkillsCard() {
         <Grid spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Card
             className={isVisible ? "skillsCard appear" : "skillsCard"}
-            elevation={4}
+            elevation={0}
             sx={{ width: "100%" }}
           >
             <Grid

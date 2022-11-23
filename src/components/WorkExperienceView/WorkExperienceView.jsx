@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getAllJobs, getImage } from "../../firestore";
+import "./WorkExperienceView.css";
+import { getAllJobs } from "../../firestore";
+import Grid from "@mui/material/Unstable_Grid2";
 import { Container, Typography } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-import TimelineDot from "@mui/lab/TimelineDot";
+import VisibilitySensor from "react-visibility-sensor";
+import { WorkExperienceTimeline } from "./WorkExperienceTimeline";
 
 let experienceSectionTitle = createTheme({
   typography: {
@@ -26,20 +23,13 @@ let experienceSectionTitle = createTheme({
 });
 experienceSectionTitle = responsiveFontSizes(experienceSectionTitle);
 
-let nameTitle = createTheme({
-  typography: {
-    h6: {
-      fontWeight: 400,
-      fontSize: 20,
-      letterSpacing: 3,
-      color: "#4F81BD",
-    },
-  },
-});
-nameTitle = responsiveFontSizes(nameTitle);
-
 export const WorkExperienceView = () => {
   const [jobs, setJobs] = useState("");
+  const [active, setActive] = useState(true);
+
+  const handleVisibility = (isVisible) => {
+    if (isVisible) setActive(false);
+  };
 
   const loadData = async () => {
     let temp = [];
@@ -59,64 +49,49 @@ export const WorkExperienceView = () => {
     loadData();
   }, []);
 
-  // Function that parses date to styled standards
-  let fullDate = (startDate, endDate) => {
-    let startMonth = startDate
-      .toDate()
-      .toLocaleDateString(undefined, { month: "long" });
-    let startYear = startDate.toDate().getFullYear();
-    let endMonth = endDate
-      .toDate()
-      .toLocaleDateString(undefined, { month: "long" });
-    let endYear = endDate.toDate().getFullYear();
-    return startMonth + " " + startYear + " - " + endMonth + " " + endYear;
-  };
-
   return (
-    <>
+    <div>
       <Container maxWidth="false">
-        <ThemeProvider theme={experienceSectionTitle}>
-          <Typography variant="h5" component="span">
-            PROFESSIONAL EXPERIENCE
-          </Typography>
-        </ThemeProvider>
-        {Array.isArray(jobs) && jobs.length > 0 ? (
-          <Timeline position="alternate">
-            {jobs.map((job, index) => (
-              <TimelineItem key={index.toString()}>
-                <TimelineOppositeContent
-                  sx={{ m: "auto 0" }}
-                  // align="right"
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {fullDate(job["start"], job["end"])}
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineConnector />
-                  <TimelineDot></TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ py: "12px", px: 2 }}>
-                  <ThemeProvider theme={nameTitle}>
-                    <Typography variant="h6" component="span">
-                      {job["title"]}
-                    </Typography>
-                  </ThemeProvider>
-                  <Typography>{job["employer"]}</Typography>
-                  {job["details"].map((detail) => (
-                    <Typography variant="body2" color="text.secondary">
-                      - {detail}
-                    </Typography>
-                  ))}
-                </TimelineContent>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        ) : (
-          ""
-        )}
+        <Grid container spacing={2}>
+          <Grid xs={12}>
+            <VisibilitySensor
+              active={active}
+              onChange={handleVisibility}
+              partialVisibility
+            >
+              {({ isVisible }) => (
+                <ThemeProvider theme={experienceSectionTitle}>
+                  <Typography
+                    variant="h5"
+                    component="span"
+                    className={
+                      isVisible
+                        ? "experienceContainer appear"
+                        : "experienceContainer"
+                    }
+                  >
+                    PROFESSIONAL EXPERIENCE
+                  </Typography>
+                </ThemeProvider>
+              )}
+            </VisibilitySensor>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="column"
+            alignItems="center"
+            justify="center"
+            xs={12}
+          >
+            {Array.isArray(jobs) && jobs.length > 0 ? (
+              <WorkExperienceTimeline jobs={jobs}></WorkExperienceTimeline>
+            ) : (
+              ""
+            )}
+          </Grid>
+        </Grid>
       </Container>
-    </>
+    </div>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import { getAllJobs } from "./firestore.jsx";
 import Grid from "@mui/material/Unstable_Grid2";
 import LandingView from "./components/LandingView";
 import SkillsView from "./components/SkillsView";
 import WorkExperienceView from "./components/WorkExperienceView";
+import ProjectsView from "./components/ProjectsView";
 
 function App() {
   return (
@@ -20,6 +20,9 @@ function App() {
         </Grid>
         <Grid xs={12}>
           <WorkExperienceView />
+        </Grid>
+        <Grid xs={12}>
+          <ProjectsView />
         </Grid>
       </Grid>
     </div>

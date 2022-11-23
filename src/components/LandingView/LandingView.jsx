@@ -11,7 +11,7 @@ import {
 
 const Container = styled.div`
   background-color: white;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;

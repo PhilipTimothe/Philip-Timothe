@@ -3,7 +3,7 @@ import "./ProjectsView.css";
 import styled from "styled-components";
 import { ProjectCards } from "./ProjectCards";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Typography, Divider } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,
@@ -52,7 +52,7 @@ export const ProjectsView = () => {
                   variant="h5"
                   gutterBottom
                 >
-                  MY PROJECTS
+                  PROJECTS
                 </Typography>
               </ThemeProvider>
             )}

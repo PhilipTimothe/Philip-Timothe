@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Card, CardMedia, CardActionArea } from "@mui/material";
 import { ProjectsModal } from "./ProjectsModal";
 
 import Grid from "@mui/material/Unstable_Grid2";

@@ -61,6 +61,7 @@ const style = {
   borderRadius: 0.5,
   boxShadow: 24,
   p: 4,
+  overflow: "scroll",
 };
 
 export function ProjectsModal() {
@@ -151,15 +152,9 @@ export function ProjectsModal() {
                     working code. Below is an example...
                   </Typography>
                 </Grid>
-                <Grid
-                  item
-                  container
-                  direction="column"
-                  alignItems="center"
-                  justify="center"
-                  xs={12}
-                >
-                  <Card elevation={5} sx={{ width: "50%" }}>
+
+                <Grid item xs={6}>
+                  <Card elevation={5}>
                     <CardMedia
                       component="img"
                       height="300"

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./WorkExperienceView.css";
 import { getAllJobs } from "../../firestore";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Container, Typography } from "@mui/material";
+import styled from "styled-components";
+import { Typography } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,
@@ -10,6 +11,14 @@ import {
 } from "@mui/material/styles";
 import VisibilitySensor from "react-visibility-sensor";
 import { WorkExperienceTimeline } from "./WorkExperienceTimeline";
+
+const Container = styled.div`
+  background-color: white;
+  min-height: 110vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 let experienceSectionTitle = createTheme({
   typography: {
@@ -51,7 +60,7 @@ export const WorkExperienceView = () => {
 
   return (
     <div>
-      <Container maxWidth="false">
+      <Container>
         <Grid container spacing={2}>
           <Grid xs={12}>
             <VisibilitySensor

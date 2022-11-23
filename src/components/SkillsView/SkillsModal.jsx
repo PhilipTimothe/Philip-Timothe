@@ -67,7 +67,9 @@ export function SkillsModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Video</Button>
+      <Button sx={{}} onClick={handleOpen}>
+        Click here & Learn more about my proficiencies
+      </Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"

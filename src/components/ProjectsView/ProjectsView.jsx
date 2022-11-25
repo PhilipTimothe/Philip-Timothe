@@ -59,7 +59,6 @@ export const ProjectsView = () => {
           </VisibilitySensor>
         </Grid>
         <Grid
-          item
           container
           direction="column"
           alignItems="center"

@@ -23,7 +23,17 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
+export const getAllSocials = async (path) => {
+  const querySnapshot = await getDocs(collection(db, path));
+  return querySnapshot;
+};
+
 export const getAllJobs = async (path) => {
+  const querySnapshot = await getDocs(collection(db, path));
+  return querySnapshot;
+};
+
+export const getAllProjects = async (path) => {
   const querySnapshot = await getDocs(collection(db, path));
   return querySnapshot;
 };

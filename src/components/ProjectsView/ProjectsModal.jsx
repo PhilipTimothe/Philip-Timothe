@@ -64,7 +64,7 @@ const style = {
   overflow: "scroll",
 };
 
-export function ProjectsModal() {
+export function ProjectsModal({ project }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -79,8 +79,8 @@ export function ProjectsModal() {
           <CardMedia
             component="img"
             height="300"
-            image="https://firebasestorage.googleapis.com/v0/b/philiptimothe-980a1.appspot.com/o/Projects%2FSplash%2FSplashThat-Header.jpeg?alt=media&token=f72a5d7f-b480-4fab-b10f-9919b07647d7"
-            alt="Splash Logo"
+            image={project["header-image"]}
+            alt=""
           />
         </CardActionArea>
       </Card>
@@ -107,26 +107,20 @@ export function ProjectsModal() {
                       variant="h3"
                       component="h2"
                     >
-                      Splash
+                      {project["header-title"]}
                     </Typography>
                   </ThemeProvider>
                 </Grid>
                 <Grid itme xs={6}>
                   <ThemeProvider theme={theme}>
                     <Typography align="center" variant="h6">
-                      Powerful Intuitive Application
+                      {project["project-title"]}
                     </Typography>
                     <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-                      The Splash application is a powerful, intuitive event
-                      marketing platform. It powers the exceptional in-person,
-                      virtual, and hybrid events. Empowers teams to seamlessly
-                      launch, promote, and scale sophisticated event programs.
+                      {project["project-description"]}
                     </Typography>
                     <Typography sx={{ mt: 2 }}>
-                      As an Apprentice Front-end Developer I had the opportunity
-                      to learn under the leadership of top industry standard
-                      developers. I was tasked with updating and debugging minor
-                      fundamental features of the existing robust UI.
+                      {project["role-description"]}
                     </Typography>
                   </ThemeProvider>
                 </Grid>
@@ -135,31 +129,23 @@ export function ProjectsModal() {
                     <CardMedia
                       component="img"
                       height="300"
-                      image="https://firebasestorage.googleapis.com/v0/b/philiptimothe-980a1.appspot.com/o/Projects%2FSplash%2FSplash.gif?alt=media&token=8bab7a63-5423-4556-bb1e-07f41680ebdc"
+                      image={project["project-art"]}
                       alt="Splash Content"
                     />
                   </Card>
                 </Grid>
                 <Grid itme xs={12}>
                   <Typography sx={{ mt: 2 }}>
-                    One of the most exciting features I worked on was a feature
-                    to that refaced an existing feature within UI. This
-                    particular feature incorporated changes to the css grid
-                    layout along with renewed component looks including buttons,
-                    text, and colors; all done with current technologies such as
-                    React, sytled Components, UI tech particular to Splash and
-                    even a testing applications involved in insuring good
-                    working code. Below is an example...
+                    {project["feature-description"]}
                   </Typography>
                 </Grid>
-
                 <Grid item xs={6}>
                   <Card elevation={5}>
                     <CardMedia
                       component="img"
                       height="300"
-                      image="https://firebasestorage.googleapis.com/v0/b/philiptimothe-980a1.appspot.com/o/Projects%2FSplash%2FSplash1.png?alt=media&token=40bf9aac-57a7-4362-82da-a1d99df1df00"
-                      alt="Splash Content"
+                      image={project["feature-image"]}
+                      alt=""
                     />
                   </Card>
                 </Grid>

@@ -40,7 +40,7 @@ export function SkillsCard() {
               spacing={2}
               direction="row"
               justifyContent="center"
-              columns={{ xs: 4, sm: 8, md: 12 }}
+              columns={{ xs: 12, sm: 8, md: 12 }}
             >
               <Grid item style={{ maxWidth: 200 }} xs={4}>
                 <Box

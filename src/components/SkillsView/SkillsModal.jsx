@@ -4,6 +4,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { Typography, Container, Box } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import {
   createTheme,
   responsiveFontSizes,
@@ -67,9 +68,26 @@ export function SkillsModal() {
 
   return (
     <div>
-      <Button sx={{}} onClick={handleOpen}>
-        Click here & Learn more about my proficiencies
-      </Button>
+      <Grid
+        container
+        spacing={{ xs: 1, md: 1 }}
+        columns={{ xs: 12, sm: 12, md: 12 }}
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        xs={12}
+      >
+        <Grid item>
+          <Typography variant="body2">
+            Learn more about my proficiencies
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Button sx={{}} variant="outlined" onClick={handleOpen}>
+            Watch Here
+          </Button>
+        </Grid>
+      </Grid>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"

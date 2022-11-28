@@ -20,11 +20,11 @@
 }
 
 /* Projects card animation */
-.projectsCard {
+.projectCards {
   opacity: 0;
 }
 
-.projectsCard.appear {
+.projectCards.appear {
   animation: projectsCardAppear 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 

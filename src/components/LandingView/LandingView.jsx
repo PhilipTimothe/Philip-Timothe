@@ -85,7 +85,7 @@ export const LandingView = () => {
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          columns={{ xs: 6, sm: 8, md: 12 }}
           direction="row"
           justifyContent="center"
           alignItems="center"
@@ -101,8 +101,8 @@ export const LandingView = () => {
                     rel="noopener noreferrer"
                   >
                     <img
+                      className="social-icon"
                       src={social["icon"]}
-                      height="40px"
                       alt="socialmedia link"
                     ></img>
                   </a>

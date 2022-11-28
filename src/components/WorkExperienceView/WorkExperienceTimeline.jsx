@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography } from "@mui/material";
+import { Typography, Avatar } from "@mui/material";
 import {
   createTheme,
   responsiveFontSizes,
@@ -70,7 +70,9 @@ export const WorkExperienceTimeline = (props) => {
               </TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineConnector />
-                <TimelineDot></TimelineDot>
+                <TimelineDot variant="outlined">
+                  <Avatar alt={job["employer"]} src={job["image-url"]} />
+                </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent sx={{ py: "12px", px: 2 }}>

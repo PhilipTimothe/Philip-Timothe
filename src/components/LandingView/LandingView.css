@@ -45,3 +45,20 @@
     opacity: 1;
   }
 }
+
+.social-icon {
+  max-height: 4vh;
+  max-width: 100%;
+  animation: social-icon 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes social-icon {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

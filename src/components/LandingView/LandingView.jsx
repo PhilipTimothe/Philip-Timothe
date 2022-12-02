@@ -1,14 +1,15 @@
+import React, { useState, useEffect } from "react";
+import "./LandingView.css";
+import { AboutMeModal } from "./AboutMeModal";
+import { getAllSocials } from "../../firestore";
+import styled from "styled-components";
+import Grid from "@mui/material/Unstable_Grid2";
+import Typography from "@mui/material/Typography";
 import {
   createTheme,
   responsiveFontSizes,
   ThemeProvider,
 } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Unstable_Grid2";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { getAllSocials } from "../../firestore";
-import "./LandingView.css";
 
 const Container = styled.div`
   background-color: white;
@@ -109,6 +110,19 @@ export const LandingView = () => {
                 </Grid>
               ))
             : ""}
+        </Grid>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 6, sm: 8, md: 12 }}
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          xs={12}
+        >
+          <Grid item>
+            <AboutMeModal></AboutMeModal>
+          </Grid>
         </Grid>
       </Grid>
     </Container>

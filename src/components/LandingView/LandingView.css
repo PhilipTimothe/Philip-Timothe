@@ -62,3 +62,18 @@
     opacity: 1;
   }
 }
+
+.about-me {
+  animation: about-me 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes about-me {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

@@ -12,7 +12,6 @@ import {
 } from "@mui/material/styles";
 // web.cjs is required for IE11 support
 import { useSpring, animated } from "@react-spring/web";
-import "./SkillsView.css";
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const { in: open, children, onEnter, onExited, ...other } = props;
@@ -66,7 +65,7 @@ const buttonColor = createTheme({
   },
 });
 
-export function SkillsModal() {
+export function AboutMeModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -86,14 +85,14 @@ export function SkillsModal() {
         xs={12}
       >
         <Grid item>
-          <Typography variant="body2">
-            Learn more about my proficiencies
-          </Typography>
-        </Grid>
-        <Grid item>
           <ThemeProvider theme={buttonColor}>
-            <Button sx={{}} variant="outlined" onClick={handleOpen}>
-              Watch Here
+            <Button
+              sx={{}}
+              className="about-me"
+              variant="outlined"
+              onClick={handleOpen}
+            >
+              About Me
             </Button>
           </ThemeProvider>
         </Grid>
@@ -118,27 +117,19 @@ export function SkillsModal() {
                   id="spring-modal-title"
                   variant="h6"
                   component="h2"
-                >
-                  My Tech Skills
-                </Typography>
+                ></Typography>
               </ThemeProvider>
               <div className="skillsVideoWrapper">
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/QUmcBmzODPA"
+                  src="https://www.youtube.com/embed/NyWVpX3Owm0"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
               </div>
-              <ThemeProvider theme={theme}>
-                <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-                  This video highlights everything technical skill oriented.
-                  Hope you enjoy!
-                </Typography>
-              </ThemeProvider>
             </Container>
           </Box>
         </Fade>

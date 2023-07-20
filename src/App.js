@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import Grid from "@mui/material/Unstable_Grid2";
 import LandingView from "./components/LandingView";
-import SkillsView from "./components/SkillsView";
-import WorkExperienceView from "./components/WorkExperienceView";
+// import SkillsView from "./components/SkillsView";
+// import WorkExperienceView from "./components/WorkExperienceView";
 import ProjectsView from "./components/ProjectsView";
 
 function App() {

@@ -15,12 +15,12 @@ function App() {
         <Grid xs={12}>
           <LandingView />
         </Grid>
-        <Grid xs={12}>
+        {/* <Grid xs={12}>
           <SkillsView />
-        </Grid>
-        <Grid xs={12}>
+        </Grid> */}
+        {/* <Grid xs={12}>
           <WorkExperienceView />
-        </Grid>
+        </Grid> */}
         <Grid xs={12}>
           <ProjectsView />
         </Grid>

@@ -19,7 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   padding: 1rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
@@ -30,5 +30,5 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
+  } */
 }

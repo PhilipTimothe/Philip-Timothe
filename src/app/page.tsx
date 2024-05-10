@@ -7,7 +7,7 @@ export default function Home() {
     <main className="main">
       {/* <NavigationBar /> */}
       <ThemeSwitcher />
-      {/* <h1>Home</h1> */}
+      <h1>Hi I'm Philip Timothe, a Data and Software Engineer!</h1>
     </main>
   );
 }

@@ -6,6 +6,13 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 
+import { Roboto } from "@next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100"],
+});
+
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 
@@ -43,10 +50,27 @@ export default function Banner() {
   ); // <-- scope is for selector text (optional)
 
   return (
-    <div class="md:container md:mx-auto" ref={container}>
-      <p class="text-8xl text-center" id="banner" ref={text}>
-        Multifaceted Developer
-      </p>
+    <div
+      class="md:container md:mx-auto h-screen flex items-center justify-center"
+      ref={container}
+    >
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <p class="text-8xl text-center" id="banner" ref={text}>
+            Multifaceted Developer
+          </p>
+        </div>
+        <div className={roboto.className}>
+          <div class="grid grid-cols-8 gap-2">
+            <p class="col-start-5 col-span-3 text-base text-center">
+              Creative data engineer with a passion for blending technology and
+              art. Skilled in innovative problem-solving and continuous
+              learning, bringing a unique perspective to every challenge.
+              Adaptable, driven, and ready to make an impact.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -45,6 +45,14 @@ export default function Banner() {
         delay: 1,
         text: "Software Engineer",
       });
+
+      gsap.from("#quote", {
+        delay: 4,
+        duration: 2.5,
+        yPercent: 200,
+        ease: "power4",
+        stagger: 0,
+      });
     },
     { scope: container }
   ); // <-- scope is for selector text (optional)
@@ -61,8 +69,8 @@ export default function Banner() {
           </p>
         </div>
         <div className={roboto.className}>
-          <div class="grid grid-cols-8 gap-2">
-            <p class="col-start-5 col-span-3 text-base text-center">
+          <div class="grid grid-cols-8 gap-2" id="banner-quotebox">
+            <p class="col-start-5 col-span-3 text-base text-center" id="quote">
               Creative data engineer with a passion for blending technology and
               art. Skilled in innovative problem-solving and continuous
               learning, bringing a unique perspective to every challenge.

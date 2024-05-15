@@ -23,7 +23,6 @@ gsap.registerPlugin(TextPlugin);
 
 export default function Banner() {
   const container = useRef();
-  const text = useRef();
   // create a timeline
   let tl = gsap.timeline();
 
@@ -64,19 +63,24 @@ export default function Banner() {
 
   return (
     <div
-      class="md:container md:mx-auto h-screen flex items-center justify-center"
+      className="md:container md:mx-auto h-screen flex items-center justify-center"
       ref={container}
     >
-      <div className="grid grid-cols-1 gap-2">
-        <div className={robotoBold.className}>
-          <p class="text-8xl text-center" id="banner" ref={text}>
-            Multifaceted Developer
-          </p>
-        </div>
-        <div className={robotoThin.className}>
-          <div className="grid grid-cols-8 gap-2" id="banner-quotebox">
+      <div className="grid grid-cols-8 gap-2 fixed">
+        <div className="col-span-8">
+          <div className={robotoBold.className}>
             <p
-              className="col-start-5 col-span-3 text-base text-center"
+              className="lg:text-8xl sm:text-7xl text-5xl text-center "
+              id="banner"
+            >
+              Multifaceted Developer
+            </p>
+          </div>
+        </div>
+        <div className="col-start-5 col-span-3">
+          <div className={robotoThin.className} id="banner-quotebox">
+            <p
+              className="lg:text-base sm:text-sm text-xs text-center"
               id="quote"
             >
               Creative data engineer with a passion for blending technology and

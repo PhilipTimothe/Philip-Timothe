@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/Philip/Desktop/Code/PhilipPortfolio/Philip-Timothe/src/app/page\":[\"static/media/934c4b7cb736f2a3-s.p.woff2\",\"static/media/02205c9944024f15-s.p.woff2\",\"static/media/934c4b7cb736f2a3-s.p.woff2\"],\"/Users/Philip/Desktop/Code/PhilipPortfolio/Philip-Timothe/src/app/layout\":[\"static/media/c9a5bc6a7c948fb0-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

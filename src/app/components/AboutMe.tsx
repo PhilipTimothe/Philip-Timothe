@@ -1,12 +1,16 @@
 "use client";
 
+import React from "react";
 import { useRef } from "react";
+import { Image } from "@nextui-org/react";
+// import Image from "next/image";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Roboto } from "next/font/google";
+import Phil from "../../../public/Nokwer.jpg";
 
 const robotoThin = Roboto({
   subsets: ["latin"],
@@ -62,8 +66,18 @@ export default function AvoutMe() {
 
   return (
     <div ref={container} className="aboutme">
-      <div className={robotoBold.className}>
-        <p className="lg:text-8xl sm:text-7xl text-5xl text-left">About Me</p>
+      {/* <img src={Nokwer} alt="me" /> */}
+      <div class="grid grid-cols-8 gap-4 auto-rows-max">
+        <div className="col-start-1 col-end-4">
+          <div className={robotoBold.className}>
+            <p className="lg:text-8xl sm:text-7xl text-5xl text-left">
+              About Me
+            </p>
+          </div>
+        </div>
+        <div className="row-start-2 col-start-5 col-span-3">
+          <Image src={Phil.src} alt="/" />
+        </div>
       </div>
     </div>
   );

@@ -373,6 +373,16 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/components/AboutMe.tsx\",\"import\":\"Roboto\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"300\"]}],\"variableName\":\"robotoThin\"}":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/components/AboutMe.tsx","import":"Roboto","arguments":[{"subsets":["latin"],"weight":["300"]}],"variableName":"robotoThin"} ***!
+  \***********************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Roboto_e28a7e', '__Roboto_Fallback_e28a7e'\",\"fontWeight\":300,\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_e28a7e\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvY29tcG9uZW50cy9BYm91dE1lLnRzeFwiLFwiaW1wb3J0XCI6XCJSb2JvdG9cIixcImFyZ3VtZW50c1wiOlt7XCJzdWJzZXRzXCI6W1wibGF0aW5cIl0sXCJ3ZWlnaHRcIjpbXCIzMDBcIl19XSxcInZhcmlhYmxlTmFtZVwiOlwicm9ib3RvVGhpblwifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyxtR0FBbUc7QUFDOUc7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL215LXBvcnRmb2xpby8uL25vZGVfbW9kdWxlcy9uZXh0L2ZvbnQvZ29vZ2xlL3RhcmdldC5jc3M/Y2NhYSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJzdHlsZVwiOiB7XCJmb250RmFtaWx5XCI6XCInX19Sb2JvdG9fZTI4YTdlJywgJ19fUm9ib3RvX0ZhbGxiYWNrX2UyOGE3ZSdcIixcImZvbnRXZWlnaHRcIjozMDAsXCJmb250U3R5bGVcIjpcIm5vcm1hbFwifSxcblx0XCJjbGFzc05hbWVcIjogXCJfX2NsYXNzTmFtZV9lMjhhN2VcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/components/AboutMe.tsx\",\"import\":\"Roboto\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"300\"]}],\"variableName\":\"robotoThin\"}\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/components/AboutMe.tsx\",\"import\":\"Roboto\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"400\"]}],\"variableName\":\"robotoBold\"}":
 /*!***********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/font/google/target.css?{"path":"src/app/components/AboutMe.tsx","import":"Roboto","arguments":[{"subsets":["latin"],"weight":["400"]}],"variableName":"robotoBold"} ***!

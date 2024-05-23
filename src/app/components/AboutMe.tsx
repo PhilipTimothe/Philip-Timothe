@@ -30,7 +30,6 @@ const robotoBold = Roboto({
 
 const StyledDivider = styled(Divider)`
   width: 200;
-
   background: #18181b;
 `;
 
@@ -38,50 +37,63 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AvoutMe() {
-  const container = useRef();
-  // create a timeline
-  let tl = gsap.timeline();
+  // const container = useRef();
+  const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       // gsap code here...
-
-      const getRatio = (el: HTMLElement): number =>
-        window.innerHeight / (window.innerHeight + el.offsetHeight);
-
-      gsap.utils.toArray<HTMLElement>("section").forEach((section, i) => {
-        gsap.fromTo(
-          section,
-          {
-            backgroundPosition: () =>
-              i
-                ? `50% ${-window.innerHeight * getRatio(section)}px`
-                : "50% 0px",
-          },
-          {
-            backgroundPosition: () =>
-              `50% ${window.innerHeight * (1 - getRatio(section))}px`,
-            ease: "none",
-            scrollTrigger: {
-              trigger: section,
-              start: () => (i ? "top bottom" : "top top"),
-              end: "bottom top",
-              scrub: true,
-              invalidateOnRefresh: true,
-            },
-          }
-        );
+      //   const getRatio = (el: HTMLElement): number =>
+      //     window.innerHeight / (window.innerHeight + el.offsetHeight);
+      //   gsap.utils.toArray<HTMLElement>("section").forEach((section, i) => {
+      //     gsap.fromTo(
+      //       section,
+      //       {
+      //         backgroundPosition: () =>
+      //           i
+      //             ? `50% ${-window.innerHeight * getRatio(section)}px`
+      //             : "50% 0px",
+      //       },
+      //       {
+      //         backgroundPosition: () =>
+      //           `50% ${window.innerHeight * (1 - getRatio(section))}px`,
+      //         ease: "none",
+      //         scrollTrigger: {
+      //           trigger: section,
+      //           start: () => (i ? "top bottom" : "top top"),
+      //           end: "bottom top",
+      //           scrub: true,
+      //           invalidateOnRefresh: true,
+      //         },
+      //       }
+      //     );
+      //   });
+      ScrollTrigger.create({
+        trigger: container.current,
+        start: "top top",
+        end: "bottom 95%",
+        markers: false,
+        onEnter: () =>
+          gsap.to(container.current, {
+            backgroundColor: "#000",
+            color: "#FFDAB9",
+          }),
+        onLeaveBack: () =>
+          gsap.to(container.current, {
+            backgroundColor: "#fff",
+            color: "#000",
+          }),
       });
     },
     { scope: container }
   ); // <-- scope is for selector text (optional)
 
   return (
-    <div ref={container} className="aboutme">
-      <div className="grid grid-cols-8 gap-x-4 gap-y-14 auto-rows-max ">
+    <div ref={container} id="aboutme">
+      <div className="grid grid-cols-8 gap-x-4 gap-y-14 auto-rows-max">
         <div className="col-start-1 col-end-6">
           <div className={robotoBold.className}>
-            <p className="lg:text-8xl sm:text-7xl text-5xl text-left text-slate-950">
+            <p className="lg:text-8xl sm:text-7xl text-5xl text-left">
               Philip Timothe
             </p>
           </div>
@@ -124,10 +136,10 @@ export default function AvoutMe() {
             height="543"
             src="https://www.youtube.com/embed/eWeKCJAG39U?si=UOPyga2Mhs0R60xS"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
         </div>
 
@@ -190,7 +202,7 @@ export default function AvoutMe() {
         <div className="row-start-8 col-start-3 col-span-5 flex justify-center">
           <div className={robotoThin.className} id="">
             <p
-              className="lg:text-lg sm:text-base text-sm text-right text-slate-950 indent-8"
+              className="lg:text-lg sm:text-base text-sm text-right indent-8"
               id="skills"
             >
               Python • JavaScript • React • Pandas • Numpy • SciPy • Matplotlib

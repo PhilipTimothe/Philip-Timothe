@@ -63,8 +63,9 @@ export default function Banner() {
 
   return (
     <div
-      className="md:container md:mx-auto h-screen flex items-center justify-center"
+      className="container md:mx-auto h-screen flex items-center justify-center"
       ref={container}
+      id="banner"
     >
       <div className="grid grid-cols-8 gap-2 fixed">
         <div className="col-span-8">

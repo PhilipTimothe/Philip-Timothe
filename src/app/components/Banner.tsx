@@ -22,7 +22,7 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 
 export default function Banner() {
-  const container = useRef();
+  const container = useRef<HTMLDivElement>(null);
   // create a timeline
   let tl = gsap.timeline();
 

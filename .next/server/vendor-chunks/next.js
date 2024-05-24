@@ -413,6 +413,16 @@ eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Roboto_7
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/components/Projects.tsx\",\"import\":\"Roboto\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"400\"]}],\"variableName\":\"robotoBold\"}":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/components/Projects.tsx","import":"Roboto","arguments":[{"subsets":["latin"],"weight":["400"]}],"variableName":"robotoBold"} ***!
+  \************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Roboto_792391', '__Roboto_Fallback_792391'\",\"fontWeight\":400,\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_792391\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvY29tcG9uZW50cy9Qcm9qZWN0cy50c3hcIixcImltcG9ydFwiOlwiUm9ib3RvXCIsXCJhcmd1bWVudHNcIjpbe1wic3Vic2V0c1wiOltcImxhdGluXCJdLFwid2VpZ2h0XCI6W1wiNDAwXCJdfV0sXCJ2YXJpYWJsZU5hbWVcIjpcInJvYm90b0JvbGRcIn0iLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBLFdBQVcsbUdBQW1HO0FBQzlHO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS1wb3J0Zm9saW8vLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzPzA2M2MiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwic3R5bGVcIjoge1wiZm9udEZhbWlseVwiOlwiJ19fUm9ib3RvXzc5MjM5MScsICdfX1JvYm90b19GYWxsYmFja183OTIzOTEnXCIsXCJmb250V2VpZ2h0XCI6NDAwLFwiZm9udFN0eWxlXCI6XCJub3JtYWxcIn0sXG5cdFwiY2xhc3NOYW1lXCI6IFwiX19jbGFzc05hbWVfNzkyMzkxXCJcbn07XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/components/Projects.tsx\",\"import\":\"Roboto\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":[\"400\"]}],\"variableName\":\"robotoBold\"}\n");
+
+/***/ }),
+
 /***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}":
 /*!************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!

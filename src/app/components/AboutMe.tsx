@@ -4,7 +4,6 @@ import React from "react";
 import { useRef } from "react";
 import { Link, Image, Divider } from "@nextui-org/react";
 import styled from "styled-components";
-// import Image from "next/image";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -37,53 +36,24 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AvoutMe() {
-  // const container = useRef();
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // gsap code here...
-      //   const getRatio = (el: HTMLElement): number =>
-      //     window.innerHeight / (window.innerHeight + el.offsetHeight);
-      //   gsap.utils.toArray<HTMLElement>("section").forEach((section, i) => {
-      //     gsap.fromTo(
-      //       section,
-      //       {
-      //         backgroundPosition: () =>
-      //           i
-      //             ? `50% ${-window.innerHeight * getRatio(section)}px`
-      //             : "50% 0px",
-      //       },
-      //       {
-      //         backgroundPosition: () =>
-      //           `50% ${window.innerHeight * (1 - getRatio(section))}px`,
-      //         ease: "none",
-      //         scrollTrigger: {
-      //           trigger: section,
-      //           start: () => (i ? "top bottom" : "top top"),
-      //           end: "bottom top",
-      //           scrub: true,
-      //           invalidateOnRefresh: true,
-      //         },
-      //       }
-      //     );
-      //   });
-      ScrollTrigger.create({
-        trigger: container.current,
-        start: "top top",
-        end: "bottom 95%",
-        markers: false,
-        onEnter: () =>
-          gsap.to(container.current, {
-            backgroundColor: "#000",
-            color: "#FFDAB9",
-          }),
-        onLeaveBack: () =>
-          gsap.to(container.current, {
-            backgroundColor: "#fff",
-            color: "#000",
-          }),
-      });
+      gsap.fromTo(
+        container.current,
+        { y: 100 },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        }
+      );
     },
     { scope: container }
   ); // <-- scope is for selector text (optional)

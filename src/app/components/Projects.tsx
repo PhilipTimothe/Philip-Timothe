@@ -11,6 +11,8 @@ import styled from "styled-components";
 import { Roboto } from "next/font/google";
 
 import DataProject from "../../../public/DataProject.png";
+import JavascriptProject from "../../../public/JavascriptProject.png";
+import Splash from "../../../public/Splash.png";
 
 const robotoThin = Roboto({
   subsets: ["latin"],
@@ -22,46 +24,14 @@ const robotoBold = Roboto({
   weight: ["400"],
 });
 
-const ProjectsContainer = styled.div`
-  background-color: black;
-  color: peachpuff;
-  height: 100vh;
-  display: flex;
-  font-size: 2rem;
-`;
-
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const container = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      //   useEffect(() => {
-      ScrollTrigger.create({
-        trigger: container.current,
-        start: "top center",
-        end: "bottom center",
-        markers: true,
-        onEnter: () =>
-          gsap.to(container.current, {
-            backgroundColor: "#000",
-            color: "#fff",
-          }),
-        onLeaveBack: () =>
-          gsap.to(container.current, {
-            backgroundColor: "#000",
-            color: "peachpuff",
-          }),
-      });
-      //   }, []);
-    },
-    { scope: container }
-  ); // <-- scope is for selector text (optional)
-
   return (
-    <div className="container" id="projects-section" ref={container}>
+    <div id="projects" ref={container}>
       <div className="grid grid-cols-8 gap-x-4 gap-y-14 auto-rows-max">
         <div className="row-start-2 col-start-1 col-span-8 ">
           <div className={robotoBold.className}>
@@ -71,8 +41,25 @@ export default function Projects() {
           </div>
         </div>
         <div className="row-start-3 col-start-1 col-span-8 text-center">
-          <Link isExternal href="">
+          <Link
+            isExternal
+            href="https://machine-learning-project-i-ewi57ecwky.streamlit.app/"
+          >
             <Image width={700} src={DataProject.src} alt="Data Project" />
+          </Link>
+        </div>
+        <div className="row-start-4 col-start-1 col-span-8 text-center">
+          <Link isExternal href="https://philiptimothe.github.io/Contact_List/">
+            <Image
+              width={700}
+              src={JavascriptProject.src}
+              alt="JavaScript Project"
+            />
+          </Link>
+        </div>
+        <div className="row-start-5 col-start-1 col-span-8 text-center">
+          <Link isExternal href="">
+            <Image width={700} src={Splash.src} alt="Splash" />
           </Link>
         </div>
       </div>

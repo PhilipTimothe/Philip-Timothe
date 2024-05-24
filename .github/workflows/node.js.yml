@@ -1,85 +1,107 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# File: .github/workflows/setup-node/action.yml
+name: setup-node
+description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js ⚙️
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
-name: Node.js CI
+    - name: Cache dependencies ⚡
+      id: cache_dependencies
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+    - name: Install dependencies 🔧
+      shell: bash
+      if: steps.cache_dependencies.outputs.cache-hit != 'true'
+      run: npm ci
+# # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+# name: Node.js CI
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# on:
+#   # Runs on pushes targeting the default branch
+#   push:
+#     branches: ["main"]
 
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+# # Allow one concurrent deployment
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: true
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v2
+#     strategy:
+#       matrix:
+#         node-version: [16.x]
+#         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm install
+#       # - name: Setup Pages
+#       #   uses: actions/configure-pages@v2
 
-      - name: Run Clean Install
-        run: npm ci
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: "npm"
 
-      - name: Run tests
-        run: npm test
+#       - name: Install dependencies
+#         run: npm install
 
-      - name: Build
-        run: npm run build --if-present
+#       - name: Run Clean Install
+#         run: npm ci
 
-      - uses: actions/upload-artifact@main
-        with:
-          name: page
-          path: build
-          if-no-files-found: error
+#       - name: Run tests
+#         run: npm test
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+#       - name: Build
+#         run: npm run build --if-present
 
-    steps:
-      - uses: actions/download-artifact@main
-        with:
-          name: page
-          path: .
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: .
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+#       - uses: actions/upload-artifact@main
+#         with:
+#           name: page
+#           path: build
+#           if-no-files-found: error
+
+#   # Deployment job
+#   deploy:
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     runs-on: ubuntu-latest
+#     needs: build
+
+#     steps:
+#       - uses: actions/download-artifact@main
+#         with:
+#           name: page
+#           path: .
+#       - name: Setup Pages
+#         uses: actions/configure-pages@v2
+#       - uses: actions/upload-pages-artifact@v1
+#         with:
+#           path: .
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v1

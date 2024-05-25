@@ -23,6 +23,8 @@ gsap.registerPlugin(TextPlugin);
 
 export default function Banner() {
   const container = useRef<HTMLDivElement>(null);
+  const bannerRef = useRef<HTMLDivElement>(null);
+
   // create a timeline
   let tl = gsap.timeline();
 
@@ -57,6 +59,18 @@ export default function Banner() {
         ease: "power4",
         stagger: 0,
       });
+
+      // Parallax effect
+      gsap.to(bannerRef.current, {
+        yPercent: 400,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
     },
     { scope: container }
   ); // <-- scope is for selector text (optional)
@@ -65,13 +79,13 @@ export default function Banner() {
     <div
       className="container md:mx-auto h-screen flex items-center justify-center"
       ref={container}
-      id="banner"
+      id="banner-container"
     >
-      <div className="grid grid-cols-8 gap-2 fixed">
+      <div className="grid grid-cols-8 gap-2" ref={bannerRef}>
         <div className="col-span-8">
           <div className={robotoBold.className}>
             <p
-              className="lg:text-8xl sm:text-7xl text-5xl text-center "
+              className="lg:text-8xl sm:text-7xl text-5xl text-center"
               id="banner"
             >
               Multifaceted Developer

@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Roboto } from "next/font/google";
 
@@ -18,15 +19,43 @@ const robotoBold = Roboto({
   weight: ["400"],
 });
 
-gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(useGSAP, TextPlugin, ScrollTrigger);
 
 export default function Banner() {
   const container = useRef<HTMLDivElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
 
+  function useDeviceType() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    const checkDeviceType = () => {
+      const isMobileDevice =
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+        window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    useEffect(() => {
+      // Initial check
+      checkDeviceType();
+
+      // Event listener for resize event
+      window.addEventListener("resize", checkDeviceType);
+
+      // Cleanup event listener on component unmount
+      return () => {
+        window.removeEventListener("resize", checkDeviceType);
+      };
+    }, []);
+
+    return isMobile;
+  }
+
+  const isMobile = useDeviceType();
+
   // create a timeline
   let tl = gsap.timeline();
+  let scrollTriggerInstance: gsap.core.Tween;
 
   useGSAP(
     () => {
@@ -59,21 +88,50 @@ export default function Banner() {
         ease: "power4",
         stagger: 0,
       });
-
-      // Parallax effect
-      gsap.to(bannerRef.current, {
-        yPercent: 400,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
     },
     { scope: container }
   ); // <-- scope is for selector text (optional)
+
+  useEffect(() => {
+    const setupScrollTrigger = () => {
+      if (!isMobile) {
+        scrollTriggerInstance = gsap.to(bannerRef.current, {
+          yPercent: -200,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+    };
+
+    const killScrollTrigger = () => {
+      if (scrollTriggerInstance && scrollTriggerInstance.scrollTrigger) {
+        scrollTriggerInstance.scrollTrigger.kill();
+      }
+    };
+
+    setupScrollTrigger();
+
+    const handleResize = () => {
+      // console.log(isMobile);
+      if (isMobile) {
+        killScrollTrigger();
+      } else {
+        setupScrollTrigger();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      killScrollTrigger();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isMobile]);
 
   return (
     <div
@@ -81,7 +139,7 @@ export default function Banner() {
       ref={container}
       id="banner-container"
     >
-      <div className="grid grid-cols-8 gap-2" ref={bannerRef}>
+      <div className="grid grid-cols-8 gap-2 fixed" ref={bannerRef}>
         <div className="col-span-8">
           <div className={robotoBold.className}>
             <p

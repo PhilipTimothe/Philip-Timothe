@@ -1422,6 +1422,9 @@ video {
 .resize-none {
   resize: none;
 }
+.resize {
+  resize: both;
+}
 .snap-y {
   scroll-snap-type: y var(--tw-scroll-snap-strictness);
 }
